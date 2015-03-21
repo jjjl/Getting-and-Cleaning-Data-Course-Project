@@ -1,5 +1,7 @@
 # How run_analysis.R works
 
+The code should be in the same directory as the unzipped folder "UCI HAR Dataset" to run successfully.
+
 * The dplyr library is first loaded to use the functionalities employed in Step 3 and Step 5.
 
 * Then subject ID, activity labels, and measurements from the training set and the test set, as well as activity names and feature names are read from different files with read.table().
