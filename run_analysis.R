@@ -13,11 +13,11 @@ activitylabels <- read.table("UCI HAR Dataset/activity_labels.txt")
 subject <- rbind(subjecttest, subjecttrain)
 X <- rbind(Xtest, Xtrain)
 y <- rbind(ytest, ytrain)
-rawData <- cbind(subject, y, X)
+mergedData <- cbind(subject, y, X)
 
 # Step 2: Extracts only the measurements on the mean and standard deviation for each measurement
-extractInd <- sort(c(grep(c("mean()"), features[,2]), grep(c("std()"), features[,2])))
-extractData <- rawData[, c(1, 2, extractInd+2)]
+extractInd <- sort(c(grep("mean()", features[,2], fixed = TRUE), grep("std()", features[,2], fixed = TRUE)))
+extractData <- mergedData[, c(1, 2, extractInd+2)]
 
 # Step 3: Uses descriptive activity names to name the activities in the data set
 activitiesData <- split(extractData, extractData[, 2])
